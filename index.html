@@ -1,0 +1,51 @@
+<!-- napi/templates/napi/formulaire_message.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, inital-scale=1.0">
+  <title>Formulaire de Message</title>
+
+  <!-- Ajoute jQuery (si ce n'est pas déjà fait) -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      // intercepte l'évènement de soumission du formulaire
+      $("form").submit(function(event){
+        // Empeche le comportementpar défaut du formulaire (rechargement de la page)
+        event.preventDefault();
+
+        // Récupère les données du formulaire
+        var formData = {
+          contenu: $("input [name='contenu']").val()
+        };
+        //console.log(formData);
+
+        // Effectue une requête AJAX pour traiter le message
+        $.ajax({
+          type: "POST",
+          url: "https://ntier.lan/napi/traiter_message/",
+          data: formData,
+          dataType: "json", //Attend une réponse JSON
+          success: function(response){
+            //Affiche la réponse du serveur
+            alert("Erreur: " + error);
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <h1>Formulaire de Message</h1>
+  <!-- Ajoute l'attribut id="message-form" pour référencer le formulaire dans le script jQuery -->
+  <form id="message-form" methode="POST" autocomplete="on">
+    <label for="contenu">Message:</label>
+    <input type="text" name="contenu" required>
+    <button type="submit">Envoyer</button>
+  </form>
+</br>
+<img src="https://ntier.lan/images/concert.jpg" width="500" height="600">
+</body>
+</html>
