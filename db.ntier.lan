@@ -1,0 +1,22 @@
+$TTL 86400
+@   IN  SOA     ns1.ntier.lan. ntier.lan. (
+                2023092701  ; Serial
+                3600        ; Refresh
+                1800        ; Retry
+                604800      ; Expire
+                86400       ; Minimum TTL
+                )
+
+@   IN  NS      ns1.ntier.lan.
+@   IN  A       10.8.128.223
+ns1 IN  A       10.8.128.62
+
+dja IN  A	10.8.128.84
+dat IN  A	10.8.128.89
+hap IN  A	10.8.128.223
+web IN  A	10.8.128.189
+dja2 IN  A	10.8.128.119
+web2 IN  A	10.8.128.228
+dat2 IN  A	10.8.128.193
+img IN  A	10.8.128.139
+
