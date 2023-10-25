@@ -1,0 +1,18 @@
+<!-- napi/templates/napi/formulaire_message.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Message</title>
+</head>
+<body>
+    <h1>Formulaire de Message</h1>
+    <form method="post" action="{% url 'traiter_message' %}">
+        {% csrf_token %}
+        <label for="contenu">Message:</label>
+        <input type="text" name="contenu" required>
+        <button type="submit">Envoyer</button>
+    </form>
+</body>
+</html>
